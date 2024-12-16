@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contrato de Arrendamiento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+            }
+            .container {
+                width: 100%;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        .signature div {
+            text-align: center;
+        }
+        .print-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contrato de Arrendatario</h1>
+        <p class="no-print">{{ fecha_inicio }}</p>
+        <p>Que de conformidad con lo dispuesto por el Artículo 2260 del código Civil vigente en el Estado de México, formalizan, por su propio derecho como Arrendador ALBA EUNICE ARMIJO OGAZON y como Arrendatario {{ inquilino.nombre }} {{ inquilino.apellidos }}, sujetándose a las siguientes, CLAUSULAS:</p>
+        <p>La Sra. ALBA EUNICE ARMIJO OGAZON da en arrendamiento. Y la Sr(a). {{ inquilino.nombre }} {{ inquilino.apellidos }} lo recibe como arrendatario, el Departamento NO.{{ departamento.numero }}</p>
+        <p>Ubicado en: callejón Zaragoza s/n, San Juan Chiautla, C.P. 56030.</p>
+        <p>El arrendatario pagará a la arrendadora a quien sus derechos representan, la suma de ${{ departamento.renta }}.00 los días {{ departamento.dia_pago }}, en moneda nacional de curso legal por mensualidad adelantada y dentro de los cinco días que corresponda acuerdo con el contrato establecido, precisar en el domicilio del arrendador.</p>
+        <p>El presente contrato da inicio el {{ fecha_inicio }} y vence el {{ fecha_fin }}.</p>
+        <ol>
+            <li>Conviene expresamente el arrendatario, en que todo mes será pagado íntegro aun cuando no se use, más que por un día.</li>
+            <li>El arrendamiento será de ${{ departamento.renta }}.00 mensual ({{ renta_en_letras }}00/100 m.n.)</li>
+            <li>Al terminar el tiempo por el que ha sido contratado el arrendamiento, el arrendatario se obliga a desocupar el departamento y si por circunstancias determinadas no pudiera hacerlo, se obliga a pagar la cantidad de ${{ departamento.renta }}.00, equivalente a un mes hasta que lo desocupe o firme nuevo contrato.</li>
+            <li>Les es absolutamente prohibido al arrendatario, subarrendar, traspasar o ceder sus derechos de inquilino a cualquier persona.</li>
+            <li>El Arrendatario no podrá usar el departamento, más que para Vivienda, descanso, aseo personal. Y bajo ninguna circunstancia para uso comercial como: Vender alimentos, bebidas, sustancias por mencionar algunos es exclusivo para uso personal.</li>
+            <li>El arrendatario hace expreso reconocimiento, de que el local motivo de este contrato lo recibe a su entera satisfacción en perfecto estado de conservación y aseo, con sus instalaciones sanitarias y de electricidad doméstica completas y en condiciones normales de servicio, comprometiéndose a conservarlas en igual estado, haciendo por su cuenta las reparaciones que se originen en los servicios a que se refiere esta cláusula, hasta devolver el local con solo natural deterioro de uso correcto.</li>
+            <li>Toda clase de mejoras, ya sean útiles o necesarias, serán por cuenta del arrendatario, sin que pueda retirarlas al desocuparlo, ni exigir pago o indemnización por ellas.</li>
+            <li>Las mensualidades de renta serán pagadas íntegras, hasta que el arrendatario entregue el departamento de conformidad con lo dispuesto en el artículo 2283 del código Civil citado, no pudiendo retener por ningún motivo que el mandato de la autoridad judicial.</li>
+            <li>Para garantía del cumplimiento de este contrato, lo firma mancomunadamente {{ inquilino.fiador_nombre }} {{ inquilino.fiador_apellidos }} como fiador, haciendo solidario de las obligaciones {{ inquilino.nombre }} {{ inquilino.apellidos }}. Hasta la fecha en que el departamento haya sido recibido de conformidad por el arrendador, a cuyo fin el fiador renuncia las disposiciones contenidas en el capítulo II del Título décimo tercero del repetido Código Civil.</li>
+            <li>Es importante que al dejar el departamento se avise con un mínimo de 15 días, de no haber cumplido con el tiempo estipulado en este contrato que se acordó, el depósito no funge como renta, esta garantía se pierde por incumplimiento del contrato, de cumplir el año y no desea continuar con el arrendamiento y al avisar con 15 días de anticipación se recupera el depósito en especie, como renta actuando como el mes 13, no hacemos devolución en efectivo.</li>
+            <li>Se anexa Normas de Convivencia:
+                <ul>
+                    <li>Mantener limpio el espacio del Depto.</li>
+                    <li>Evitar reuniones de más de 2 personas, en horarios de descanso.</li>
+                    <li>No mascotas</li>
+                    <li>Anunciar con tiempo alguna falla en los servicios.</li>
+                    <li>Formar parte de una comunidad con respeto</li>
+                    <li>Evitar visitas desagradables (estado de ebriedad)</li>
+                    <li>Informar en caso de estar fuera del departamento durante varios días.</li>
+                    <li>No prestar llaves a terceras personas (es responsabilidad del arrendador el uso de las llaves)</li>
+                    <li>Cuidar nuestras salidas y entradas de cerrar bien las puertas</li>
+                    <li>Lo anterior es con la finalidad y propósito de la seguridad de todos.</li>
+                    <li>El uso de la lavadora es para toda la comunidad úsala con responsabilidad y respeto sugerimos de 2 a 3 cargas de ropa máximo y retirar su ropa el mismo día de lavado ya que los demás pueden usar la lavadora y estar ocupado, horario máximo hasta las 6pm.</li>
+                </ul>
+            </li>
+        </ol>
+        <p>INVENTARIO:</p>
+        <ul>
+            <li>Llaves</li>
+            <li>Puertas</li>
+            <li>Muebles de baño</li>
+            <li>Instalaciones de electricidad</li>
+            <li>Focos</li>
+            <li>Refrigerador</li>
+            <li>2 bancos</li>
+            <li>Parrilla de gas exterior</li>
+            <li>Cama matrimonial</li>
+        </ul>
+        {% if departamento.observaciones %}
+        <p>Observaciones: {{ departamento.observaciones }}</p>
+        {% endif %}
+        <div class="signature">
+            <div>
+                <p>________________________</p>
+                <p>{{ inquilino.nombre }} {{ inquilino.apellidos }}</p>
+                <p>{{ inquilino.telefono }}</p>
+                <p>Arrendatario</p>
+            </div>
+            <div>
+                <p>________________________</p>
+                <p>ALBA EUNICE ARMIJO OGAZON</p>
+                <p>Arrendadora</p>
+            </div>
+        </div>
+        <div class="signature">
+            <div>
+                <p>________________________</p>
+                <p>{{ inquilino.fiador_nombre }} {{ inquilino.fiador_apellidos }}</p>
+                <p>{{ inquilino.fiador_telefono }}</p>
+                <p>Fiador</p>
+            </div>
+            <div>
+                <p>{{ fecha_inicio }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="print-button">
+        <button class="btn btn-primary no-print" onclick="printDocument()">Imprimir</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function printDocument() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
