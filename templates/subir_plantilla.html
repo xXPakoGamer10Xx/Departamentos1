@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subir Plantilla</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Subir Plantilla de Contrato</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <p>
+            Sube tu plantilla de contrato en formato <code>.txt</code> o <code>.html</code>.
+        </p>
+        <p>
+            <strong>Tu plantilla debe incluir los siguientes marcadores de posición:</strong>
+        </p>
+        <ul>
+            <li><code>{{ "{{" }}propietario_nombre}}</code></li>
+            <li><code>{{ "{{" }}inquilino.nombre}}</code></li>
+            <li><code>{{ "{{" }}inquilino.apellidos}}</code></li>
+            <li><code>{{ "{{" }}departamento.numero}}</code></li>
+            <li><code>{{ "{{" }}departamento.direccion}}</code></li>
+            <li><code>{{ "{{" }}departamento.renta}}</code></li>
+            <li><code>{{ "{{" }}renta_en_letras}}</code></li>
+            <li><code>{{ "{{" }}departamento.dia_pago}}</code></li>
+            <li><code>{{ "{{" }}departamento.observaciones}}</code></li>
+            <li><code>{{ "{{" }}departamento.inventario}}</code></li>
+            <li><code>{{ "{{" }}fecha_inicio}}</code></li>
+            <li><code>{{ "{{" }}fecha_fin}}</code></li>
+            <li><code>{{ "{{" }}inquilino.fiador_nombre}}</code></li>
+            <li><code>{{ "{{" }}inquilino.fiador_apellidos}}</code></li>
+            <li><code>{{ "{{" }}fecha_actual}}</code></li>
+        </ul>
+        <p>
+            <strong>Ejemplo de plantilla:</strong>
+        </p>
+        <pre>
+            <code>
+CONTRATO DE ARRENDAMIENTO
+
+En la Ciudad de [Ciudad], a {{ "{{" }}fecha_actual}}, comparecen:
+
+Por una parte, en calidad de ARRENDADOR, {{ "{{" }}propietario_nombre}}, con domicilio en {{ "{{" }}departamento.direccion}}.
+
+Y por otra parte, en calidad de ARRENDATARIO, {{ "{{" }}inquilino.nombre}} {{ "{{" }}inquilino.apellidos}}, con domicilio en [Dirección del Inquilino], quien se identifica con [Tipo de Identificación] número {{ "{{" }}inquilino.id_inquilino}}.
+
+... (resto del contrato) ...
+
+INVENTARIO
+{{ "{{" }}departamento.inventario}}
+
+_________________________________          _________________________________
+{{ "{{" }}inquilino.nombre}} {{ "{{" }}inquilino.apellidos}}      {{ "{{" }}propietario_nombre}}
+Arrendador                                     Arrendataria
+
+_________________________________          _________________________________
+{{ "{{" }}inquilino.fiador_nombre}} {{ "{{" }}inquilino.fiador_apellidos}}      {{ "{{" }}fecha_inicio}}
+FIADOR
+            </code>
+        </pre>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('subir_plantilla') }}">
+            <div class="mb-3">
+                <label for="plantilla" class="form-label">Selecciona tu plantilla:</label>
+                <input type="file" class="form-control" id="plantilla" name="plantilla" accept=".txt,.html" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subir Plantilla</button>
+        </form>
+        <a href="{{ url_for('gestionar_plantillas') }}" class="btn btn-secondary">Ver mis plantillas</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Regresar al Inicio</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
