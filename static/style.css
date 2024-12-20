@@ -1,0 +1,206 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #343a40;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    color: #0d6efd;
+}
+
+/* Botones */
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Tablas */
+.table {
+    background-color: #fff;
+}
+
+.table th {
+    background-color: #e9ecef;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Formularios */
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+/* Mensajes flash */
+.flashes {
+    padding: 0;
+    list-style: none;
+}
+
+.flashes li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.flashes .success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.flashes .error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Centrar elementos */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Ajusta la altura mínima al 80% de la altura de la ventana */
+    text-align: center;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-nav {
+    margin: 0 auto; /* Centra los elementos de la barra de navegación */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-item {
+    margin: 0 10px; /* Espacio entre elementos de la barra de navegación */
+}
+
+/* Estilos para la sección de contratos generados */
+pre {
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* CSS 3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-family: 'Courier New', Courier, monospace; /* Usa una fuente monoespaciada para que la tabulación se vea bien */
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.print-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilos para la previsualización de plantillas */
+.container pre {
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    white-space: pre-wrap;
+    display: inline-block;
+}
+
+@media (min-width: 1200px) { /* Puedes ajustar el breakpoint según tus necesidades */
+    .container {
+        max-width: 95%; /* Aumenta el ancho del contenedor en pantallas grandes */
+    }
+}
+
+@media print {
+    .no-print, .btn, .print-button {
+        display: none !important;
+    }
+    .container {
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        background-color: white; /* Asegura fondo blanco al imprimir */
+    }
+    pre {
+        border: none;
+    }
+}
+
+/* Estilos específicos para la página de Departamentos y Contratos */
+.list-group-item {
+    border: 1px solid #ced4da; /* Un borde más suave */
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa; /* Un ligero cambio de color al pasar el ratón */
+}
