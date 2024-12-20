@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestión de Departamentos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="centered-content">
+        <div class="mb-5">
+            <h1 class="display-4">Gestión de Departamentos</h1>
+            <p class="lead">Administra tus departamentos e inquilinos de forma fácil y eficiente.</p>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('lista_departamentos') }}">Ver Departamentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('lista_inquilinos') }}">Ver Inquilinos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('mostrar_formulario_agregar_departamento') }}">Agregar Departamento</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('mostrar_formulario_agregar_inquilino') }}">Agregar Inquilino</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('departamentos_contratos') }}">Ver Contratos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('perfil') }}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
